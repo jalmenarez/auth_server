@@ -1,0 +1,23 @@
+---
+## Server
+server:
+  port: 9999
+  contextPath: /login
+
+## Security
+security:
+  user:
+    name: jalmenarez
+    password: 12345
+    role:
+    - ADMIN
+
+## Spring
+spring:
+  application:
+    name: auth-server
+
+## Logging
+logging:
+  level:
+    org.springframework.security: DEBUG
