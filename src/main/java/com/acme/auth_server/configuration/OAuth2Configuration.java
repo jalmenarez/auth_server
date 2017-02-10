@@ -21,9 +21,7 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
       endpoints
-      	.authenticationManager(this.authenticationManager)
-      	//.accessTokenConverter(accessTokenConverter())
-      	;
+      	.authenticationManager(this.authenticationManager);
     }
     
     @Override
@@ -32,12 +30,7 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
         	.tokenKeyAccess("isAnonymous() || hasAuthority('ROLE_TRUSTED_CLIENT')")
             .checkTokenAccess("hasAuthority('ROLE_TRUSTED_CLIENT')");
     }
-    
-    /*@Bean
-    public JwtAccessTokenConverter accessTokenConverter() {
-        return new JwtAccessTokenConverter();
-    }*/
-    
+        
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
